@@ -19,7 +19,7 @@ gsap.registerPlugin(ScrollTrigger);
 const box = document.getElementById("container3D");
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth*0.9 / window.innerHeight, 0.1, 1000);
 
 let mouseX = window.innerWidth / 100;
 let mouseY = window.innerHeight / 100;
@@ -59,7 +59,7 @@ loader.load(
 );
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(window.innerWidth*0.9, window.innerHeight);
 
 renderer.setClearColor(0xffffff, 0);
 
@@ -101,9 +101,9 @@ function animate() {
 renderer.setAnimationLoop(animate);
 
 window.addEventListener("resize", function () {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.aspect = window.innerWidth*0.9 / window.innerHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(window.innerWidth*0.9 , window.innerHeight);
 });
 
 document.onmousemove = (e) => {
